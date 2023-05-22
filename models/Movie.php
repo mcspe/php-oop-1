@@ -1,17 +1,17 @@
 <?php
 class Movie {
   public $title;
-  public $genre;
+  public $genres;
   public $href;
   public $overview;
   public $homepage;
 
-  function __construct($_title, $_genre, $_href, $_overview, $_homepage = null) {
-    $title = $_title;
-    $genre = $_genre;
-    $href = $_href;
-    $overview = $_overview;
-    $homepage = $_homepage;
+  function __construct($_title, $_genres, $_href, $_overview, $_homepage = null) {
+    $this->title = $_title;
+    $this->genres = $_genres;
+    $this->href = $_href;
+    $this->overview = $_overview;
+    $this->homepage = $_homepage;
   }
 
   public function getImage() {
