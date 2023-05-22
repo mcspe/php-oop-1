@@ -26,22 +26,27 @@
   <main>
     <div class="container text-center my-5">
       <div class="d-flex justify-content-center flex-wrap gap-5">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <?php foreach ($movieDB as $movie) : ?>
+          <div class="card" style="width: 18rem;">
+            <img src="<?php echo $movie->getImage()?>" class="card-img-top" alt="<?php echo $movie->title?>">
+            <div class="card-body">
+              <h5 class="card-title"><?php echo $movie->title?></h5>
+              <p class="card-text"><?php echo $movie->overview?></p>
+            </div>
+            <ul class="list-group list-group-horizontal list-group-flush mx-auto flex-wrap gap-1">
+              <?php foreach ($movie->genres as $genre) : ?>
+                <li class="list-group-item"><span class="badge rounded-pill text-bg-secondary"><?php echo $genre?></span></li>
+              <?php endforeach ?>
+            </ul>
+            <div class="card-body d-flex justify-content-center align-items-center">
+              <?php if ($movie->homepage === '') :?>
+                <span> - </span>
+              <?php else: ?>
+                <a href="<?php echo $movie->homepage ?>" class="card-link"><?php echo $movie->title?></a>
+              <?php endif ?>
+            </div>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
-        </div>
+        <?php endforeach ?>
       </div>
     </div>
   </main>
