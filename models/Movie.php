@@ -13,4 +13,8 @@ class Movie {
     $overview = $_overview;
     $homepage = $_homepage;
   }
+
+  public function getImage() {
+    return "https://image.tmdb.org/t/p/original$this->href";
+  }
 }
